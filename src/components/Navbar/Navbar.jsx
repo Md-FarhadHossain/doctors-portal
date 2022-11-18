@@ -2,19 +2,33 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-    const menuItem = <>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='/'>About</Link></li>
-        <li><Link to='/'>Appointment</Link></li>
-        <li><Link to='/'>Reviews</Link></li>
-        <li><Link to='/'>Contact Us</Link></li>
+  // Navbar menu items/links
+  const menuItem = (
+    <>
+      <li>
+        <Link to="/">Home</Link>
+      </li>
+      <li>
+        <Link to="/">About</Link>
+      </li>
+      <li>
+        <Link to="/">Appointment</Link>
+      </li>
+      <li>
+        <Link to="/">Reviews</Link>
+      </li>
+      <li>
+        <Link to="/">Contact Us</Link>
+      </li>
     </>
+  );
   return (
     <>
       <div className="">
         <div className="navbar container mx-auto">
           <div className="navbar-start">
             <div className="dropdown">
+              {/* Toggle responsive hamburger menu */}
               <label tabIndex={0} className="btn btn-ghost lg:hidden">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -31,6 +45,9 @@ const Navbar = () => {
                   />
                 </svg>
               </label>
+              {/* Toggle responsive hamburger menu end */}
+
+              {/* Responsive Navbar */}
               <ul
                 tabIndex={0}
                 className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
@@ -38,19 +55,19 @@ const Navbar = () => {
                 {menuItem}
               </ul>
             </div>
-            
-            {/* Logo */}
-            <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+            {/* Responsive Navbar end */}
 
+            {/* Logo */}
+            <Link className="normal-case font-semibold text-xl">Doctors Portal</Link>
           </div>
+          {/* Desktop navbar menu */}
           <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal p-0">
-              {menuItem}
-            </ul>
+            <ul className="menu menu-horizontal p-0">{menuItem}</ul>
           </div>
           <div className="navbar-end">
             <Link className="btn btn-success">Login</Link>
           </div>
+          {/* Desktop navbar menu */}
         </div>
       </div>
     </>
