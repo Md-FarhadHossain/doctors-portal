@@ -1,5 +1,6 @@
 import React from 'react'
 import Appointment from '../../components/Appointment/Appointment'
+import ContactUs from '../../components/ContactUs/ContactUs'
 import DentalInfo from '../../components/DentalInfo/DentalInfo'
 import HeroSection from '../../components/HeroSection/HeroSection'
 import OutlineServiceCard from '../../components/OutlineServiceCard/OutlineServiceCard'
@@ -15,6 +16,7 @@ const Home = () => {
         <DentalInfo />
         <Appointment />
         <Testimonial />
+        <ContactUs />
     </>
   )
 }

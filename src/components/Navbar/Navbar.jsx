@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from '../../assets/images/logo.png'
 
 const Navbar = () => {
   // Navbar menu items/links
@@ -58,7 +59,7 @@ const Navbar = () => {
             {/* Responsive Navbar end */}
 
             {/* Logo */}
-            <Link className="normal-case font-semibold text-xl">Doctors Portal</Link>
+            <Link className="normal-case font-bold text-2xl flex items-center"><img className="w-9" src={logo} alt="" /><span>Doctors Portal</span></Link>
           </div>
           {/* Desktop navbar menu */}
           <div className="navbar-center hidden lg:flex">

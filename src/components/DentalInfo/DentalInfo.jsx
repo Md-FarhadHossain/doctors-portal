@@ -3,7 +3,7 @@ import treatment from '../../assets/images/treatment.png'
 
 const DentalInfo = () => {
   return (
-    <section>
+    <section className="pb-16 pt-12">
       <div className="cotainer mx-auto px-4 lg:px-0 my-32">
         <div className="hero">
           <div className="hero-content flex-col lg:flex-row">

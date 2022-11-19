@@ -1,12 +1,12 @@
 import React from "react";
-import doctor from '../../assets/images/doctor.png'
+import doctor from '../../assets/images/doctor-small.png'
 import appointment from '../../assets/images/appointment.png'
 
 const Appointment = () => {
   return (
     <section style={{
         background: `url(${appointment})`
-    }} className='my-32'>
+    }} className='mb-32 mt-40'>
       <div className="container mx-auto px-4 lg-px-0 lg:py-0 py-16">
         <div className="hero">
           <div className="hero-content flex-col lg:flex-row">
