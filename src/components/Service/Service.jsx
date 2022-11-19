@@ -27,7 +27,7 @@ const Service = () => {
   return (
     <section>
       <div className="container mx-auto my-16 px-4 lg:px-0">
-        <div className="text-center">
+        <div className="text-center mb-14">
           <h4 className="font-bold text-secondary">OUR SERVICES</h4>
           <h1 className="text-3xl">Services We Provide</h1>
         </div>
