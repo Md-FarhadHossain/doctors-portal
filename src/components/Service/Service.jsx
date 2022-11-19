@@ -24,6 +24,7 @@ const Service = () => {
             description: 'Fluoride varnish can be applied to both baby teeth and adult teeth by a dentist.'
         },
     ]
+
   return (
     <section>
       <div className="container mx-auto my-16 px-4 lg:px-0">

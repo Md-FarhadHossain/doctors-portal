@@ -2,7 +2,7 @@ import React from "react";
 import doctor from '../../assets/images/doctor-small.png'
 import appointment from '../../assets/images/appointment.png'
 
-const Appointment = () => {
+const AppointmentSection = () => {
   return (
     <section style={{
         background: `url(${appointment})`
@@ -29,4 +29,4 @@ const Appointment = () => {
   );
 };
 
-export default Appointment;
+export default AppointmentSection;

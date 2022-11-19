@@ -1,5 +1,5 @@
 import React from 'react'
-import Appointment from '../../components/Appointment/Appointment'
+import AppointmentSection from '../../components/AppointmentSection/AppointmentSection'
 import ContactUs from '../../components/ContactUs/ContactUs'
 import DentalInfo from '../../components/DentalInfo/DentalInfo'
 import HeroSection from '../../components/HeroSection/HeroSection'
@@ -14,7 +14,7 @@ const Home = () => {
         <OutlineServiceCard />
         <Service />
         <DentalInfo />
-        <Appointment />
+        <AppointmentSection />
         <Testimonial />
         <ContactUs />
     </>
