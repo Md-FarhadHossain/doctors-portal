@@ -17,7 +17,7 @@ const Footer = () => {
         Doctors Portal
           <br />
         </h2>
-          <p>Best Photography Service Provider</p>
+          <p>The maintenance of healthy teeth</p>
         </div>
       </div>
       <div className='text-white'>
