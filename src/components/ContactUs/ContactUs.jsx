@@ -5,7 +5,7 @@ const ContactUs = () => {
     <section className="py-16 mt-8" style={{
         background: `url(${appointment}) no-repeat`
     }}>
-      <div className="container mx-auto flex flex-col justify-center items-center px-4 lg:px-0 my-32">
+      <div className="container mx-auto flex flex-col justify-center items-center px-4 lg:px-0 mt-32">
         <div className="text-center">
           <h4 className="font-bold text-secondary">Contact Us</h4>
           <h1 className="text-4xl text-white mb-12">Stay connected with us</h1>
