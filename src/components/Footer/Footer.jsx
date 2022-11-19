@@ -43,7 +43,7 @@ const Footer = () => {
       </div>
 
     </footer>
-    <p className='text-white pb-8 pt-16 text-center'><small>&copy; Farhad Hossain - {currentYear} All Rights Reserved</small></p>
+    <p className='text-white pb-8 pt-24 text-center'><small>&copy; Farhad Hossain - {currentYear} All Rights Reserved</small></p>
   </section>
   )
 }
