@@ -14,7 +14,7 @@ const HeroSection = () => {
               Dentistry, also known as dental medicine and oral medicine, is the
               branch of medicine focused on the teeth, gums, and mouth.
             </p>
-            <button className="btn btn-primary">Get Started</button>
+            <button className="btn btn-primary text-white bg-gradient-to-r from-secondary to-primary">Get Started</button>
           </div>
           {/* Hero left image */}
 
