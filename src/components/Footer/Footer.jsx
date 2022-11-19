@@ -4,11 +4,12 @@ import logo from '../../assets/images/logo.png'
 import footer from '../../assets/images/footer.png'
 
 const Footer = () => {
+    const currentYear= new Date().getFullYear()
   return (
     <section style={{
         backgroundImage: `url(${footer})`,
         backgroundPosition: 'center'
-    }} className="bg-gray-900 py-24">
+    }} className="bg-gray-900 pt-24">
     <footer className="container mx-auto footer p-10 flex flex-wrap justify-center lg:justify-between text-base-content">
       <div className="flex items-center">
         <img className="w-12" src={logo} alt="" />
@@ -40,7 +41,9 @@ const Footer = () => {
         <a className="link link-hover">Privacy policy</a>
         <a className="link link-hover">Cookie policy</a>
       </div>
+
     </footer>
+    <p className='text-white pb-8 pt-16 text-center'><small>&copy; Farhad Hossain - {currentYear} All Rights Reserved</small></p>
   </section>
   )
 }
