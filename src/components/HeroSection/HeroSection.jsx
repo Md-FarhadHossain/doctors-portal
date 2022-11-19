@@ -4,8 +4,8 @@ import chirImage from "../../assets/images/chair.png";
 
 const HeroSection = () => {
   return (
-    <section id="hero_section" className="container mx-auto h-[80vh] flex items-center justify-center">
-      <div className="hero">
+    <section id="hero_section" className="h-[95vh] flex items-center justify-center">
+      <div className="hero container mx-auto ">
         <div className="hero-content flex-col md:flex-row lg:flex-row">
           {/* Hero left image */}
           <div className="">
