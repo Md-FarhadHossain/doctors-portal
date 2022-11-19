@@ -1,13 +1,15 @@
 import { format } from "date-fns";
 import React, { useEffect, useState } from "react";
+import BookingModal from "../BookingModal/BookingModal";
 
 const AvailableAppointment = ({ selectedDate }) => {
   const [appointmentOptions, setAppointmentOptions] = useState([]);
+  const [treactment, setTreatment] = useState({})
   useEffect(() => {
     fetch("appointmentOptions.json")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setAppointmentOptions(data);
       });
   }, []);
@@ -31,18 +33,20 @@ const AvailableAppointment = ({ selectedDate }) => {
                 {option.name}
               </h2>
               <p>
-                {option.slots.length}{" "}
+                {option.slots.length}
                 {option.slots.length > 1 ? "spaces" : "space"} available
               </p>
               <div className="card-actions justify-center">
-                <button className="btn btn-primary text-white bg-gradient-to-r from-secondary to-primary">
-                  Book Appointment
-                </button>
+                
+                <label onClick={() => setTreatment(option)} htmlFor="booking-modal" className="btn btn-primary text-white bg-gradient-to-r from-secondary to-primary">Book Appointment</label>
               </div>
             </div>
           </div>
         ))}
       </div>
+      {
+        treactment && <BookingModal selectedDate={selectedDate} treactment={treactment} />
+      }
     </div>
   );
 };
