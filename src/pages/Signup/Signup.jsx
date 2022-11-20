@@ -13,7 +13,7 @@ const schema = yup.object().shape({
     password: yup.string().min(6).required(),
     confirmPassword: yup.string().oneOf([yup.ref('password'), null]).required()
 })
-const {register, handleSubmit} = useForm({
+const {register, handleSubmit, formState:{errors}} = useForm({
     resolver: yupResolver(schema)
 })
 const onSubmit = data => {
@@ -37,8 +37,9 @@ const onSubmit = data => {
                   type="text"
                   {...register('name')}
                   placeholder="Name"
-                  className="input input-bordered input-accent"
+                  className={`input input-bordered ${errors.name ?  'input-error':'input-accent'}`}
                 />
+                <small className="text-red-500">{errors.name?.message}</small>
               </div>
               <div className="form-control">
                 <label className="label">
@@ -48,8 +49,9 @@ const onSubmit = data => {
                   type="text"
                   {...register('email')}
                   placeholder="Email"
-                  className="input input-bordered input-accent"
+                  className={`input input-bordered ${errors.email ?  'input-error':'input-accent'}`}
                 />
+<small className="text-red-500">{errors.email?.message}</small>
               </div>
               <div className="form-control">
                 <label className="label">
@@ -59,9 +61,9 @@ const onSubmit = data => {
                   type="password"
                   {...register('password')}
                   placeholder="Password"
-                  className="input input-bordered input-accent"
+                  className={`input input-bordered ${errors.password ?  'input-error':'input-accent'}`}
                 />
-                
+                <small className="text-red-500">{errors.password?.message}</small>
               </div>
               <div className="form-control">
                 <label className="label">
@@ -71,9 +73,9 @@ const onSubmit = data => {
                   type="password"
                   {...register('confirmPassword')}
                   placeholder="Confirm Password"
-                  className="input input-bordered input-accent"
+                  className={`input input-bordered ${errors.confirmPassword ?  'input-error':'input-accent'}`}
                 />
-                
+                <small className="text-red-500">{errors.confirmPassword?.message}</small>
               </div>
               <div className="form-control mt-6">
               <button className="btn btn-primary text-white bg-gradient-to-r from-secondary to-primary">Sign Up</button>
