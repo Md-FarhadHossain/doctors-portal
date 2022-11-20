@@ -1,22 +1,41 @@
-import React from "react";
-import login from '../../assets/images/login.png'
+import React, { useContext } from "react";
+import { useForm } from "react-hook-form";
+import { UserContext } from "../../context/AuthContext";
+import * as yup from 'yup'
+import { yupResolver } from '@hookform/resolvers/yup'
+
 
 const Signup = () => {
+const {signup} = useContext(UserContext)
+const schema = yup.object().shape({
+    name: yup.string().required(),
+    email: yup.string().email().required(),
+    password: yup.string().min(6).required(),
+    confirmPassword: yup.string().oneOf([yup.ref('password'), null]).required()
+})
+const {register, handleSubmit} = useForm({
+    resolver: yupResolver(schema)
+})
+const onSubmit = data => {
+    console.log(data)
+}
+
   return (
     <div>
-        {/* <h1 className="text-4xl font-bold text-primary text-center mt-8">Login Now!</h1> */}
+        
       <div className="hero h-[80vh] w-full">
         <div className="hero-content w-full flex-col">
           
           <div className="card flex-shrink-0 w-full max-w-md shadow-2xl bg-base-100">
-            <div className="card-body">
+            <form onSubmit={handleSubmit(onSubmit)} className="card-body">
             <h2 className="text-center text-xl">Sign Up </h2>
-              <div className="form-control">
+              <div  className="form-control">
                 <label className="label">
                   <span className="label-text">Name</span>
                 </label>
                 <input
                   type="text"
+                  {...register('name')}
                   placeholder="Name"
                   className="input input-bordered input-accent"
                 />
@@ -27,7 +46,8 @@ const Signup = () => {
                 </label>
                 <input
                   type="text"
-                  placeholder="email"
+                  {...register('email')}
+                  placeholder="Email"
                   className="input input-bordered input-accent"
                 />
               </div>
@@ -36,8 +56,21 @@ const Signup = () => {
                   <span className="label-text">Password</span>
                 </label>
                 <input
-                  type="text"
-                  placeholder="password"
+                  type="password"
+                  {...register('password')}
+                  placeholder="Password"
+                  className="input input-bordered input-accent"
+                />
+                
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Confirm Password</span>
+                </label>
+                <input
+                  type="password"
+                  {...register('confirmPassword')}
+                  placeholder="Confirm Password"
                   className="input input-bordered input-accent"
                 />
                 
@@ -57,7 +90,7 @@ const Signup = () => {
                 <div className="form-control">
               <button className="btn border-gray-500 no-animation hover:text-white font-semibold text-gray-600 border-2 bg-transparent">CONTINUE WITH GOOGLE</button>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>
