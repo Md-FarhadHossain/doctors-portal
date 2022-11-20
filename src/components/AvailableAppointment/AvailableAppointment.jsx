@@ -4,7 +4,7 @@ import BookingModal from "../BookingModal/BookingModal";
 
 const AvailableAppointment = ({ selectedDate }) => {
   const [appointmentOptions, setAppointmentOptions] = useState([]);
-  const [treactment, setTreatment] = useState({})
+  const [treactment, setTreatment] = useState(null)
   useEffect(() => {
     fetch("appointmentOptions.json")
       .then((res) => res.json())
@@ -38,14 +38,14 @@ const AvailableAppointment = ({ selectedDate }) => {
               </p>
               <div className="card-actions justify-center">
                 
-                <label onClick={() => setTreatment(option)} htmlFor="booking-modal" className="btn btn-primary text-white bg-gradient-to-r from-secondary to-primary">Book Appointment</label>
+                <label disabled={option.slots.length === 0} onClick={() => setTreatment(option)} htmlFor="booking-modal" className="btn btn-primary text-white bg-gradient-to-r from-secondary to-primary">Book Appointment</label>
               </div>
             </div>
           </div>
         ))}
       </div>
       {
-        treactment && <BookingModal selectedDate={selectedDate} treactment={treactment} />
+    treactment && <BookingModal setTreatment={setTreatment} selectedDate={selectedDate} treactment={treactment} />
       }
     </div>
   );
