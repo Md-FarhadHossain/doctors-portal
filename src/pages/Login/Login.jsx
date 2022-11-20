@@ -5,16 +5,11 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import toast from "react-hot-toast";
 
-const Signup = () => {
-  const { signup } = useContext(UserContext);
+const Login = () => {
+  const { login } = useContext(UserContext);
   const schema = yup.object().shape({
-    name: yup.string().required(),
     email: yup.string().email().required(),
     password: yup.string().min(6).required(),
-    confirmPassword: yup
-      .string()
-      .oneOf([yup.ref("password"), null])
-      .required(),
   });
   const {
     register,
@@ -26,7 +21,7 @@ const Signup = () => {
   const onSubmit = (data) => {
     console.log(data);
 
-    signup(data.email, data.password)
+    login(data.email, data.password)
       .then((result) => {
         console.log(result);
         toast.success("Sign up successfully!");
@@ -35,28 +30,14 @@ const Signup = () => {
         toast.error(error.message);
       });
   };
-
   return (
     <div>
       <div className="hero h-[80vh] w-full">
         <div className="hero-content w-full flex-col">
           <div className="card flex-shrink-0 w-full max-w-md shadow-2xl bg-base-100">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
-              <h2 className="text-center text-xl">Sign Up </h2>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Name</span>
-                </label>
-                <input
-                  type="text"
-                  {...register("name")}
-                  placeholder="Name"
-                  className={`input input-bordered ${
-                    errors.name ? "input-error" : "input-accent"
-                  }`}
-                />
-                <small className="text-red-500">{errors.name?.message}</small>
-              </div>
+              <h2 className="text-center text-xl">Login </h2>
+              
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -87,36 +68,21 @@ const Signup = () => {
                   {errors.password?.message}
                 </small>
               </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Confirm Password</span>
-                </label>
-                <input
-                  type="password"
-                  {...register("confirmPassword")}
-                  placeholder="Confirm Password"
-                  className={`input input-bordered ${
-                    errors.confirmPassword ? "input-error" : "input-accent"
-                  }`}
-                />
-                <small className="text-red-500">
-                  {errors.confirmPassword?.message}
-                </small>
-              </div>
+              
               <div className="form-control mt-6">
                 <button className="btn btn-primary text-white bg-gradient-to-r from-secondary to-primary">
-                  Sign Up
+                  Login
                 </button>
               </div>
               <label className="text-center">
                 <span className="label-text-alt mr-2">
-                  All ready have an accout?
+                  Don't have an accout?
                 </span>
                 <a
                   href="#"
                   className="label-text-alt link link-hover text-secondary"
                 >
-                  Login Here
+                  Signup Here
                 </a>
               </label>
 
@@ -135,4 +101,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Login;

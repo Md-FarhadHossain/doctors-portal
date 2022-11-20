@@ -33,7 +33,7 @@ const AvailableAppointment = ({ selectedDate }) => {
                 {option.name}
               </h2>
               <p>
-                {option.slots.length}
+                {option.slots.length} {" "}
                 {option.slots.length > 1 ? "spaces" : "space"} available
               </p>
               <div className="card-actions justify-center">
