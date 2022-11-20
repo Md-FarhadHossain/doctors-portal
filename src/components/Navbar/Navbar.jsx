@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from '../../assets/images/logo.png'
+import { UserContext } from "../../context/AuthContext";
 
 const Navbar = () => {
+  const {user} = useContext(UserContext)
+  console.log(user)
   // Navbar menu items/links
   const menuItem = (
     <>
@@ -66,7 +69,10 @@ const Navbar = () => {
             <ul className="menu menu-horizontal p-0">{menuItem}</ul>
           </div>
           <div className="navbar-end">
-            <Link to='/login' className="btn btn-success">Login</Link>
+            {
+              user ? <><Link className="btn btn-error">Sign Out</Link></> : <><Link to='/login' className="btn btn-success">Login</Link></>
+            }
+            
           </div>
           {/* Desktop navbar menu */}
         </div>
